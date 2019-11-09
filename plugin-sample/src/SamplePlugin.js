@@ -24,8 +24,9 @@ export default class SamplePlugin extends FlexPlugin {
 
     flex.CRMContainer.defaultProps.uriCallback = (task) => {
       return task
-        ? `https://bing.com/?q=${task.attributes.name}`
-        : 'https://bing.com';
+        ? `https://chiefstattoobookingtech58042.activehosted.com/app/contacts?q=8015410498`
+        // `https://bing.com/?q=${task.attributes.name}`
+        : 'https://chiefstattoobookingtech58042.activehosted.com/app/contacts';
     }
   }
 
