@@ -22,12 +22,12 @@ export default class SamplePlugin extends FlexPlugin {
   init(flex, manager) {
     this.registerReducers(manager);
 
-    flex.CRMContainer.defaultProps.uriCallback = (task) => {
-      return task
-        ? `https://chiefstattoobookingtech58042.activehosted.com/app/contacts?q=8015410498`
-        // `https://bing.com/?q=${task.attributes.name}`
-        : 'https://chiefstattoobookingtech58042.activehosted.com/app/contacts';
-    }
+    flex.CRMContainer.defaultProps.uriCallback = (task) => task
+      ? `https://chiefstattoobookingtech58042.activehosted.com/app/contacts`
+      // `https://chiefstattoobookingtech58042.activehosted.com/app/contacts?q=8015410498`
+      // `https://bing.com/?q=${task.attributes.name}`
+      : 'https://chiefstattoobookingtech58042.activehosted.com';
+
   }
 
   /**
