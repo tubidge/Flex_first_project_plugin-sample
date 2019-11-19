@@ -7,6 +7,63 @@ import reducers, { namespace } from './states';
 
 const PLUGIN_NAME = 'SamplePlugin';
 
+class Square extends React.Component {
+  render() {
+    return (
+      <button className="square">
+        {/* TODO */}
+      </button>
+    );
+  }
+}
+
+class Board extends React.Component {
+  renderSquare(i) {
+    return <Square />;
+  }
+
+  render() {
+    const status = 'Next player: X';
+
+    return (
+      <div>
+        <div className="status">{status}</div>
+        <div className="board-row">
+          {this.renderSquare(0)}
+          {this.renderSquare(1)}
+          {this.renderSquare(2)}
+        </div>
+        <div className="board-row">
+          {this.renderSquare(3)}
+          {this.renderSquare(4)}
+          {this.renderSquare(5)}
+        </div>
+        <div className="board-row">
+          {this.renderSquare(6)}
+          {this.renderSquare(7)}
+          {this.renderSquare(8)}
+        </div>
+      </div>
+    );
+  }
+}
+
+class Game extends React.Component {
+  render() {
+    return (
+      <div className="game">
+        <div className="game-board">
+          <Board />
+        </div>
+        <div className="game-info">
+          <div>{/* status */}</div>
+          <ol>{/* TODO */}</ol>
+        </div>
+      </div>
+    );
+  }
+}
+
 export default class SamplePlugin extends FlexPlugin {
   constructor() {
     super(PLUGIN_NAME);
@@ -23,11 +80,14 @@ export default class SamplePlugin extends FlexPlugin {
     this.registerReducers(manager);
 
     flex.CRMContainer.defaultProps.uriCallback = (task) => {
-      return task
-        ? `https://bing.com/?q=${task.attributes.name}`
-        : 'https://bing.com';
+      return <Game />
+      // ? `https://bing.com/?q=${task.attributes.name}`
+      // : 'https://bing.com';
     }
   }
+
+
+
 
   /**
    * Registers the plugin reducers
